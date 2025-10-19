@@ -1,0 +1,12 @@
+public class Diagnoseschluessel {
+    public static void main (String[] args) {
+        String[] diagnosen = {"G01", "B04", "C56", "J09", "H63", "F00", "J09"};
+        int anzahl = 0;
+                for (int i = 0; i < diagnosen.length; i++) {
+            if (diagnosen[i].equals("J09")) {
+                anzahl++;
+            }
+        }
+        System.out.println("Anzahl der EInträge zu Grippe (J09): " + anzahl);
+    }
+}
