@@ -1,0 +1,94 @@
+class Hero:
+    def __init__(self, name, health, power, armor, level):
+        self.name = name
+        self.health = health
+        self.power = power
+        self.armor = armor
+        self.level = level
+
+    def take_damage(self, damage):
+        """Reduziert die Lebenspunkte um den Schaden."""
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+
+    # Getter und Setter (optional in Python, aber für Vergleich mit Java enthalten)
+    def get_name(self):
+        return self.name
+
+    def set_name(self, name):
+        self.name = name
+
+    def get_health(self):
+        return self.health
+
+    def set_health(self, health):
+        self.health = health
+
+    def get_power(self):
+        return self.power
+
+    def set_power(self, power):
+        self.power = power
+
+    def get_armor(self):
+        return self.armor
+
+    def set_armor(self, armor):
+        self.armor = armor
+
+    def get_level(self):
+        return self.level
+
+    def set_level(self, level):
+        self.level = level
+
+    def __str__(self):
+        """Gibt eine lesbare Beschreibung des Helden aus."""
+        return (f"Name: {self.name}, Health: {self.health}, Power: {self.power}, "
+                f"Armor: {self.armor}, Level: {self.level}")
+
+
+# --- Spezialisierte Klassen ---
+class Elf(Hero):
+    def __init__(self, name, health, power, armor, level):
+        super().__init__(name, health, power, armor, level)
+
+
+class Orc(Hero):
+    def __init__(self, name, health, power, armor, level):
+        super().__init__(name, health, power, armor, level)
+
+
+class Dwarf(Hero):
+    def __init__(self, name, health, power, armor, level):
+        super().__init__(name, health, power, armor, level)
+
+
+# --- main-Methode (wie in Java) ---
+def main():
+    # Helden erstellen
+    legolas = Elf("Legolas", 100, 25, 10, 5)
+    thrall = Orc("Thrall", 150, 35, 20, 7)
+    gimli = Dwarf("Gimli", 120, 30, 25, 6)
+
+    # Helden anzeigen
+    print("=== Helden ===")
+    print(legolas)
+    print(thrall)
+    print(gimli)
+
+    # Kampf-Simulation
+    print("\n=== Kampf beginnt ===")
+    print(f"{thrall.get_name()} greift {legolas.get_name()} an!")
+    damage = thrall.get_power() - legolas.get_armor()
+    if damage < 0:
+        damage = 0
+    legolas.take_damage(damage)
+    print(f"{legolas.get_name()} erleidet {damage} Schaden.")
+    print(f"Neuer Gesundheitswert von {legolas.get_name()}: {legolas.get_health()}")
+
+
+# Programmstart
+if __name__ == "__main__":
+    main()
