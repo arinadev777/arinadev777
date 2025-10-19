@@ -1,0 +1,20 @@
+// horizontale Position
+float x = 1;
+// horizontale Geschwindigkeit
+float vx = 4;
+
+void setup(){
+  size(400, 300);
+}
+
+void draw(){
+  background(0);
+  x = x + vx;
+  println("x = " + x);
+  //Ball prallt ab (links / rechts)
+  if(x <= 0 || x >= width){
+    vx = vx*(-1);
+    println("Richtung wechseln. Neues vx = " + vx);
+  }
+  ellipse(x, height/2.0, 50,50);
+}
