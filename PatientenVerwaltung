@@ -1,0 +1,71 @@
+def main():
+    name = ""
+    vorname = ""
+    geschlecht = ""
+    alter = 0
+    krankenkasse = ""
+    fallzahl = 0
+    patient_vorhanden = False
+    menue_anzeigen = True
+
+    while menue_anzeigen:
+        print("\nMenü")
+        print("1. Einen Patienten anlegen")
+        print("2. Zuletzt eingegebenen Patienten anzeigen")
+        print("3. Aktuelle Fallzahl anzeigen")
+        print("4. Alle vorhandenen Informationen anzeigen")
+        print("5. Programm beenden")
+
+        auswahl = input("Wählen Sie eine Zahl von 1 bis 5: ")
+
+        if auswahl == "1":
+            name = input("Name: ")
+            vorname = input("Vorname: ")
+            geschlecht = input("Geschlecht: ")
+            alter = int(input("Alter: "))
+            krankenkasse = input("Krankenkasse: ")
+
+            neuer_fall = input("Ist es ein neuer Fall? (ja/nein): ").lower()
+            if neuer_fall == "ja":
+                fallzahl += 1
+
+            patient_vorhanden = True
+            print("Patient wurde erfolgreich gespeichert!")
+
+        elif auswahl == "2":
+            if patient_vorhanden:
+                print("\nZuletzt eingegebener Patient:")
+                print(f"Name: {name}")
+                print(f"Vorname: {vorname}")
+                print(f"Geschlecht: {geschlecht}")
+                print(f"Alter: {alter}")
+                print(f"Krankenkasse: {krankenkasse}")
+            else:
+                print("Kein Patient gespeichert.")
+
+        elif auswahl == "3":
+            print(f"Aktuelle Fallzahl: {fallzahl}")
+
+        elif auswahl == "4":
+            if patient_vorhanden:
+                print("\nZuletzt eingegebener Patient:")
+                print(f"Name: {name}")
+                print(f"Vorname: {vorname}")
+                print(f"Geschlecht: {geschlecht}")
+                print(f"Alter: {alter}")
+                print(f"Krankenkasse: {krankenkasse}")
+            else:
+                print("Kein Patient gespeichert.")
+
+            print(f"Fallzahl: {fallzahl}")
+
+        elif auswahl == "5":
+            print("Auf Wiedersehen!")
+            menue_anzeigen = False
+
+        else:
+            print("Ungültige Eingabe. Bitte wählen Sie 1 bis 5.")
+
+if __name__ == "__main__":
+    main()
+
