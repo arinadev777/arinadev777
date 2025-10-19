@@ -1,0 +1,26 @@
+public class PatientenIDsa {
+        public static void main(String[] args) {
+            int[] ids = {100546, 101433, 100546, 100211, 100777, 101433};
+            boolean[] schoneingegeben = new boolean[ids.length];
+
+            System.out.println("Doppelte Patienten-IDs:");
+
+            for (int i = 0; i < ids.length; i++) {
+                if (schoneingegeben[i]) continue;
+                boolean doppelt = false;
+
+                for (int a = i + 1; a < ids.length; a++) {
+                    if (ids[i] == ids[a]) {
+                        doppelt = true;
+                        schoneingegeben[a] = true; // Merken, dass wir diese ID schon behandelt haben
+                    }
+                }
+
+                if (doppelt) {
+                    System.out.println("- ID " + ids[i]);
+                    schoneingegeben[i] = true;
+                }
+            }
+        }
+    }
+
