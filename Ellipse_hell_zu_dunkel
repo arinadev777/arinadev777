@@ -1,0 +1,23 @@
+void setup () {
+size (1500,500);
+
+fill (randomColor (150,250));
+ellipse(width/4, height/2, 200, 200);
+
+fill (randomColor (100,150));
+ellipse(2*width/4, height/2, 200, 200);
+
+fill (randomColor (0,100));
+ellipse(3*width/4, height/2, 200, 200);
+}
+void draw() {
+  }
+color randomColor (int minBr, int maxBr) {
+float span = maxBr-minBr;
+
+float r = minBr + random (span);
+float g = minBr + random (span);
+float b = minBr + random (span);
+
+return color (r,g,b);
+}
